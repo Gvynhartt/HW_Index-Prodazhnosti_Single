@@ -1,10 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import ru.netology.stats.*;
+import ru.netology.stats.SalesStatsServices;
 
-public class SalesServicesTest {
+public class SalesStatsServicesTest {
 
     @Test
     // тестирует рвботу с массивом из одного значения
@@ -14,7 +12,7 @@ public class SalesServicesTest {
         int[] salesByMonths = {15};
         int expectedTotal = 15;
 
-        SalesByMonthsTotalService salesTotal = new SalesByMonthsTotalService();
+        SalesStatsServices salesTotal = new SalesStatsServices();
         int actualTotal = salesTotal.calcSalesTotal(salesByMonths);
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -25,7 +23,7 @@ public class SalesServicesTest {
 
         int[] salesByMonth = {20, 6, 23, 15, 25, 30, 5, 45, 10, 30};
         int expectedMean = 20;
-        MeanSalesPerMonthService meanSales = new MeanSalesPerMonthService();
+        SalesStatsServices meanSales = new SalesStatsServices();
         int actualMean = meanSales.calcMonthlySales(salesByMonth);
         Assertions.assertEquals(expectedMean, actualMean);
     }
@@ -36,7 +34,7 @@ public class SalesServicesTest {
 
         int[] salesByMonth = {20, 13, 13, 13, 13};
         int expectedMaxMonth = 1; // т. к. в задании требовалось, чтобы указывался именно последний при наличии нескольких равных
-        MaxSalesMonthService maxMonth = new MaxSalesMonthService();
+        SalesStatsServices maxMonth = new SalesStatsServices();
         int actualMaxMonth = maxMonth.calcMaxSalesMonthNmb(salesByMonth);
         Assertions.assertEquals(expectedMaxMonth, actualMaxMonth);
     }
@@ -46,7 +44,7 @@ public class SalesServicesTest {
     public void shdCalcMinMonthForFirst() {
         int[] salesByMonth = {10, 14, 14, 14, 14};
         int expectedMinMonth = 1;
-        MinSalesMonthService minMonth = new MinSalesMonthService();
+        SalesStatsServices minMonth = new SalesStatsServices();
         int actualMinMonth = minMonth.calcMinSalesMonthNmb(salesByMonth);
         Assertions.assertEquals(expectedMinMonth, actualMinMonth);
     }
@@ -56,7 +54,7 @@ public class SalesServicesTest {
     public void shdCalcMonthsBelowMeanWithEquals() {
         int[] salesByMonth = {66, 66, 66, 66, 66};
         int expMonthsBelowMean = 0;
-        MonthsBelowMeanService belowMonths = new MonthsBelowMeanService();
+        SalesStatsServices belowMonths = new SalesStatsServices();
         int actMonthsBelowMean = belowMonths.calcMonthsBelowMean(salesByMonth);
         Assertions.assertEquals(expMonthsBelowMean, actMonthsBelowMean);
     }
@@ -66,7 +64,7 @@ public class SalesServicesTest {
     public void shdCalcMonthsAboveMeanWithEquals() {
         int[] salesByMonth = {300, 300, 300, 300, 300};
         int expMonthsAboveMean = 0;
-        MonthsAboveMeanService aboveMonths = new MonthsAboveMeanService();
+        SalesStatsServices aboveMonths = new SalesStatsServices();
         int actMonthsAboveMean = aboveMonths.calcMonthsAboveMean(salesByMonth);
         Assertions.assertEquals(expMonthsAboveMean, actMonthsAboveMean);
     }

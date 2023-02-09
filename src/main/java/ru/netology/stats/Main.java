@@ -8,32 +8,32 @@ public class Main {
         };
 
         // ПУНКТ 1 - сумма всех продаж
-        SalesByMonthsTotalService soldOverall = new SalesByMonthsTotalService();
+        SalesStatsServices soldOverall = new SalesStatsServices();
         int totalSum = soldOverall.calcSalesTotal(salesByMonths);
         System.out.println("Общая сумма продаж составляет " + totalSum);
 
         // ПУНКТ 2 - средняя сумма продаж в месяц
-        MeanSalesPerMonthService averageSoldPerMonth = new MeanSalesPerMonthService();
+        SalesStatsServices averageSoldPerMonth = new SalesStatsServices();
         int meanSales = averageSoldPerMonth.calcMonthlySales(salesByMonths);
-        System.out.println("В среднем в месяц продаётся " + meanSales + "*Родин*");
+        System.out.println("В среднем в месяц продаётся " + meanSales + " *Родин*");
 
         // ПУНКТ 3 - номер месяца с максимальными продажами
-        MaxSalesMonthService monthMaxNmb = new MaxSalesMonthService();
+        SalesStatsServices monthMaxNmb = new SalesStatsServices();
         int maxSoldIn = monthMaxNmb.calcMaxSalesMonthNmb(salesByMonths);
         System.out.println("Максимальные продажи были в(о) " + maxSoldIn + " месяце");
 
         // ПУНКТ 4 - номер месяца с минимальными продажами
-        MinSalesMonthService monthMinNmb = new MinSalesMonthService();
+        SalesStatsServices monthMinNmb = new SalesStatsServices();
         int minSoldIn = monthMinNmb.calcMinSalesMonthNmb(salesByMonths);
         System.out.println("Минимальные продажи были в(о) " + minSoldIn + " месяце");
 
         // ПУНКТ 5 - число месяцев с продажами НИЖЕ среднего
-        MonthsBelowMeanService mthsBelowMeanNmb = new MonthsBelowMeanService();
+        SalesStatsServices mthsBelowMeanNmb = new SalesStatsServices();
         int belowMeanTotal = mthsBelowMeanNmb.calcMonthsBelowMean(salesByMonths);
         System.out.println("Всего месяцев с продажами ниже среднего было: " + belowMeanTotal);
 
         // ПУНКТ 6 - число месяцев с продажами ВЫШЕ среднего
-        MonthsAboveMeanService mthsAboveMeanNmb = new MonthsAboveMeanService();
+        SalesStatsServices mthsAboveMeanNmb = new SalesStatsServices();
         int aboveMeanTotal = mthsAboveMeanNmb.calcMonthsAboveMean(salesByMonths);
         System.out.println("Всего месяцев с продажами выше среднего было: " + aboveMeanTotal);
     }
