@@ -1,6 +1,6 @@
 package ru.netology.stats;
 
-public class SalesStatsServices {
+public class StatsService {
 
     public int calcSalesTotal(int[] salesByMonths) { // подсчитывает общие продажи
 
