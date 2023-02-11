@@ -4,13 +4,12 @@ public class StatsService {
 
     public int calcSalesTotal(int[] salesByMonths) { // подсчитывает общие продажи
 
-        // int arrayPosition = 0; ух ты, мы сэкономили аж ОДНУ строчку кода
         int currentTotal = 0; // показывает текущий результат сложения продаж по месяцам
 
 
             for (int arrayPosition = 0; arrayPosition < salesByMonths.length; arrayPosition++) {
                 currentTotal = (currentTotal + salesByMonths[arrayPosition]);
-                // arrayPosition = arrayPosition + 1; даже ДЖВЕ строчки сэкономили... а в чём смысл? for-each делает то же
+                // не совсем понятно, в чём смысл замены одного типа циклов на другой? for-each делает то же
                 // самое, с менее громоздкой записью, ещё и не выдаёт исключений при достижении конца массива
             }
         return currentTotal;
